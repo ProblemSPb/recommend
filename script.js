@@ -10,17 +10,42 @@ function validateForm() {
     } else {
         goal = input;
 
-        callGoodreadsAPI(goal);
-        callGoogleSearchAPI(goal);
+        // callGoodreadsAPI(goal);
+        // callGoogleSearchAPI(goal);
 
         document.getElementById("submit1").innerHTML = "Re-Start";
         document.getElementById("submit1").setAttribute( "onClick", "reloadPage();" );
+
+        removeElement("hint_text");
+        showlElement("google-search-container")
+        showGoodreads();
 
     }
 }
 
 function reloadPage() {
     location.reload();
+}
+
+// hide element from the page
+function removeElement(arg) {
+    let element = document.getElementById(arg);
+
+    element.remove();
+}
+
+// show hidden elements
+function showlElement(arg) {
+    let element = document.getElementById(arg);
+
+    element.removeAttribute("hidden");
+}
+
+function showGoodreads() {
+    let element = document.getElementById("goodread-container");
+    if(window.getComputedStyle(element).display === "none") {
+        element.style.display = "flex";
+    };
 }
 
 // returns Goodreads books per user's input

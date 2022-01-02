@@ -13,16 +13,26 @@ h1 {
     font-size: 2.5em;
 }
 
-p {
-    margin-top: 10%;
+.main_line {
+    margin-top: 12%;
     font-size: 1.5em;
+}
+
+#hint_text {
+    margin-top: 8%;
+    opacity: 80%;
+    /* font-style: italic; */
 }
 
 #input1 {
     margin-left: 10px;
     padding: 6px;
+    padding-left: 15px;
     font-size: medium;
     border-color: blueviolet;
+    border-radius: 20px;
+    width: 230px;
+    height: 25px;
 }
 
 #submit1 {
@@ -36,4 +46,54 @@ p {
     padding: 10px;
     margin-top: 15px;
     
+}
+
+div {
+    background-color: rgb(250, 219, 250);
+    border: 1px solid darkblue;
+}
+
+#google-search-container {
+    margin-top: 8%;
+    margin-bottom: 8%;
+}
+
+li {
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+a:hover {
+    color: rgb(58, 7, 105);
+    font-weight: bold;
+    font-size: 102%;
+}
+
+#goodread-container {
+    display: none;
+    gap: 1rem;
+    flex-wrap: nowrap;
+    background-color:darkgray;
+    border: 1px solid darkslateblue;
+}
+
+.goodread-book {
+    display: inline-flex;
+    flex: 1 1 33.33%;
+    align-self: center;
+}
+
+.goodread-book > a {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.goodread-pic {
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.goodread-title {
+    /* padding: 2%; */
 }

@@ -13,20 +13,66 @@
 <body>
 
     <h1>My Personal Development Plan</h1>
-    <p>I wanna get better at:
+    <p class="main_line">I wanna get better at:
 
     <input type="text" id="input1" name="goal1" minlength="3" maxlength="100" placeholder="Public Speaking">
     </p>
-    <button id="submit1" type="button" onclick="validateForm()">Submit</button>    
+    <button id="submit1" type="button" onclick="validateForm()">set goal</button>    
 
-    <p id="goal1"><a href="" target="_blank" id="goal1_link"></a></p>
-    <p id="goal1_descr"></p>
+    <p id="hint_text">Set a personal development goal and get links <br>  to helpful resources and books recomendations.</p>
 
-    <p id="goal2"><a href="" target="_blank" id="goal2_link"></a></p>
-    <p id="goal2_descr"></p>
+    <div id="google-search-container" hidden>
+        <p>
+            Check these learning resourses out:
+        </p>
+        <ul>
+            <li>
+                <p id="goal1"><a href="" target="_blank" id="goal1_link"></a></p>
+                <p id="goal1_descr"></p>
+            </li>
+            <li>
+                <p id="goal2"><a href="" target="_blank" id="goal2_link"></a></p>
+                <p id="goal2_descr"></p>
+            </li>
+            <li>
+                <p id="goal3"><a href="" target="_blank" id="goal3_link"></a></p>
+                <p id="goal3_descr"></p>
+            </li>
+        </ul>
+    </div>
 
-    <p id="goal3"><a href="" target="_blank" id="goal3_link"></a></p>
-    <p id="goal3_descr"></p>
+    <div id="goodread-container">
+        <div class="goodread-book">
+            <a href="https://www.goodreads.com/book/show/968.The_Da_Vinci_Code?from_search=true&from_srp=true&qid=E3gLDYlq1H&rank=1">
+                <div class="goodread-pic">
+                    <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1579621267i/968._SY75_.jpg">
+                </div>
+                <div class="goodread-title">
+                Da Vinci Code (Robert Langdon, #2) by Dan Brown
+                </div>
+            </a>
+        </div>
+        <div class="goodread-book">
+            <a href="https://www.goodreads.com/book/show/968.The_Da_Vinci_Code?from_search=true&from_srp=true&qid=E3gLDYlq1H&rank=1">
+                <div class="goodread-pic">
+                    <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1579621267i/968._SY75_.jpg">
+                </div>
+                <div class="goodread-title">
+                Da Vinci Code (Robert Langdon, #2) by Dan Brown skjdfgsjbgdlnrfjlsjldn
+                </div>
+            </a>
+        </div>
+        <div class="goodread-book">
+            <a href="https://www.goodreads.com/book/show/968.The_Da_Vinci_Code?from_search=true&from_srp=true&qid=E3gLDYlq1H&rank=1">
+                <div class="goodread-pic">
+                    <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1579621267i/968._SY75_.jpg">
+                </div>
+                <div class="goodread-title">
+                Da Vinci Code by Dan Brown
+                </div>
+            </a>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
