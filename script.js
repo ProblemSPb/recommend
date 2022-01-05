@@ -1,5 +1,10 @@
-let googleLink1;
-let googleTitle1;
+let inputTag = document.getElementById("input1");
+
+inputTag.addEventListener("keyup", function(event) {
+    if(event.key === "Enter") {
+        validateForm();
+    }
+});
 
 function validateForm() {
     let input = document.getElementById("input1").value;
@@ -10,10 +15,10 @@ function validateForm() {
     } else {
         goal = input;
 
-        // callGoodreadsAPI(goal);
-        // callGoogleSearchAPI(goal);
+        callGoodreadsAPI(goal);
+        callGoogleSearchAPI(goal);
 
-        document.getElementById("submit1").innerHTML = "Re-Start";
+        document.getElementById("submit1").innerHTML = "re-start";
         document.getElementById("submit1").setAttribute( "onClick", "reloadPage();" );
 
         removeElement("hint_text");
@@ -70,6 +75,19 @@ function callGoodreadsAPI(goal) {
       })
       .then((data) => {
         console.log(data);
+
+        document.getElementById("book1_link").href = data[0].url;
+        document.getElementById("book1_img").src = data[0].smallImageURL;
+        document.getElementById("book1_title").innerHTML = data[0].title + " by " + data[0].author;
+
+        document.getElementById("book2_link").href = data[1].url;
+        document.getElementById("book2_img").src = data[1].smallImageURL;
+        document.getElementById("book2_title").innerHTML = data[1].title + " by " + data[1].author;;
+
+        document.getElementById("book3_link").href = data[2].url;
+        document.getElementById("book3_img").src = data[2].smallImageURL;
+        document.getElementById("book3_title").innerHTML = data[2].title + " by " + data[2].author;;
+
       })
     .catch(err => {
         console.error(err);
@@ -100,24 +118,26 @@ function callGoogleSearchAPI(goal) {
       })
       .then((data) => {
 
-        document.getElementById("goal1_link").innerHTML = data.results[0].title;
-        document.getElementById("goal1_descr").innerHTML = data.results[0].description;
-        document.getElementById("goal1_link").href = data.results[0].link;
+        document.getElementById("search_result1_link").innerHTML = data.results[0].title;
+        document.getElementById("search_result1_descr").innerHTML = data.results[0].description;
+        document.getElementById("search_result1_link").href = data.results[0].link;
 
-        document.getElementById("goal2_link").innerHTML = data.results[1].title;
-        document.getElementById("goal2_descr").innerHTML = data.results[1].description;
-        document.getElementById("goal2_link").href = data.results[1].link;
+        document.getElementById("search_result2_link").innerHTML = data.results[1].title;
+        document.getElementById("search_result2_descr").innerHTML = data.results[1].description;
+        document.getElementById("search_result2_link").href = data.results[1].link;
 
-        document.getElementById("goal3_link").innerHTML = data.results[2].title;
-        document.getElementById("goal3_descr").innerHTML = data.results[2].description;
-        document.getElementById("goal3_link").href = data.results[3].link;
-
-        googleLink1 = data.results[0].link;
-        console.log("First link is: " + googleLink1);
-        console.log(data);
+        document.getElementById("search_result3_link").innerHTML = data.results[2].title;
+        document.getElementById("search_result3_descr").innerHTML = data.results[2].description;
+        document.getElementById("search_result3_link").href = data.results[3].link;
 
       })
     .catch(err => {
         console.error(err);
     });
 }
+
+//TODO: 
+// изменить дефолтовый алерт на что-то получше
+// make a "wait" icon
+// выбрать самые новые или популярные книги на Goodreads
+// не показывать страницу с результатами, пока не вернутся результаты API calls
