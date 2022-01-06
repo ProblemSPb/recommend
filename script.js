@@ -11,7 +11,13 @@ function validateForm() {
     let goal;
 
     if (input == "") {
-        alert("Set at least one goal for your personal development.")
+        // alert("Set at least one goal for your personal development.")
+        cuteAlert({
+            type: "warning",
+            title: "Something is missing",
+            message: "Set at least one goal for your personal development",
+            buttonText: "Okay"
+          })
     } else {
         goal = input;
 
@@ -135,6 +141,7 @@ function callGoogleSearchAPI(goal) {
         console.error(err);
     });
 }
+
 
 //TODO: 
 // изменить дефолтовый алерт на что-то получше
