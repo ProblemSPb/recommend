@@ -23,7 +23,8 @@ function validateForm() {
         goal = input;
 
         // shows Load Icon
-        document.querySelector(".preload").style.display = "initial";
+        removeElement("hint-text");
+        document.querySelector("#loader-wrapper").style.display = "block";
 
         sendingAPIrequests(goal);
     }
@@ -51,30 +52,6 @@ function showGoodreads() {
         element.style.display = "flex";
     };
 }
-
-
-// Loader
-
-const loader = document.querySelector(".preload");
-const emoji = document.querySelector(".emoji");
-
-const emojis = ["🕐", "🕜", "🕑", "🕝", "🕒", "🕞", "🕓", "🕟", "🕔", "🕠", "🕕", "🕡", "🕖", "🕢", "🕗", "🕣", "🕘", "🕤", "🕙", "🕥", "🕚", "🕦", "🕛", "🕧"];
-
-const interval = 125;
-
-const loadEmojis = (arr) => {
-    setInterval(() => {
-        emoji.innerText = arr[Math.floor(Math.random() * arr.length)];
-    }, interval);
-}
-
-const init = () => {
-    loadEmojis(emojis);
-}
-init();
-// End of Loader
-
-
 
 const goodReads = (goal) => {
     // remove any extra spaces in the beginning and end of user input
@@ -159,8 +136,7 @@ function sendingAPIrequests(goal) {
                 // hiding elements that are not needed and showing new elements with request results
                 document.getElementById("submit1").innerHTML = "re-start";
                 document.getElementById("submit1").setAttribute("onClick", "reloadPage();");
-                document.querySelector(".preload").style.display = "none";
-                removeElement("hint-text");
+                document.querySelector("#loader-wrapper").style.display = "none";
                 showlElement("google-search-container")
                 showGoodreads();
 
